@@ -1,0 +1,48 @@
+$accent-color: #f39800;
+$base-color: #e0e0e0;
+
+.form-wrapper {
+    background-color: $base-color;
+    overflow: hidden;
+    .form {
+        width: 400px;
+        margin:80px auto;
+        padding: 40px;
+        background-color: white;       
+        h2 {
+            margin:0 0 20px 0;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 300;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid $base-color;
+            font-size: 15px;
+        }
+        label {
+            font-size: 15px;
+        }
+        .actions input {
+            background-color: $accent-color;
+            padding:15px 0;
+            border: 0;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+        }
+        a {
+            display: block;
+            padding:15px 0;
+            border: 1px solid $base-color;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            font-size: 15px;
+            text-decoration: none;
+        }
+    }
+}
