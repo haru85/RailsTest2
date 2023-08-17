@@ -1,0 +1,41 @@
+<div class="form-wrapper">
+  <div class="container">
+    <div class="form">
+      <h2>施設登録</h2>
+
+      <%= form_with model:@room do |f| %>
+
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "施設名" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :detail %><br />
+          <%= f.text_area :detail, autofocus: true, autocomplete: "施設詳細" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :fee %><br />
+          <%= f.text_field :fee, autocomplete: "料金" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :address %><br />
+          <%= f.text_field :address, autocomplete: "住所" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :icon %><br />
+          <%= f.file_field :icon, autocomplete: "施設画像" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "保存" %>
+        </div>
+      <% end %>
+
+      <%= link_to "キャンセル", :back %>
+    </div>
+  </div>
+</div>

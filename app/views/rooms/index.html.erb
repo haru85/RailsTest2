@@ -1,0 +1,8 @@
+<div class="container">
+    <p><%= @rooms.count %>件が見つかりました</p>
+    <div class="rooms-wrapper">
+        <% @rooms.each do |room| %>
+            <%= render "shared/room",obj: room %>
+        <% end %>
+    </div>
+</div>

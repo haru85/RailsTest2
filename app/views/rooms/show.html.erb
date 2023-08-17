@@ -1,0 +1,23 @@
+<div class="container">
+    <%= link_to "← 戻る", :back, class: "back-button"%>
+    <div class="detail-wrapper">
+        <div class= "room-icon">
+            <%= image_tag @room.icon %>
+        </div>
+        <div class="detail2">
+            <div class="detail3 room">
+                <div class="room-detail-wrapper">
+                    <h4><%= @room.name %></h4>
+                    <p class="address"><%= @room.address %></p>
+                </div>
+                <p class="fee">¥<%= @room.fee %>〜</p>
+            </div>
+            <p class="detail"><%= @room.detail %></p>
+            <div class="reserve-form">
+                <p>aaaaaaa</p>
+                <%=%>
+            </div>
+        </div> 
+    </div>       
+    
+</div>
