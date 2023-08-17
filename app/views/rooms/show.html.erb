@@ -15,8 +15,28 @@
             </div>
             <p class="detail"><%= @room.detail %></p>
             <div class="reserve-form">
-                <p>aaaaaaa</p>
-                <%=%>
+                <%= form_with model:@reservation, url:reservations_url do |f| %>
+                    <div class="reserve-information">
+                        <div class="info-form">
+                            <%= f.label :checkin %>
+                            <%= f.date_field :checkin %>
+                        </div>
+                        <div class="info-form">
+                            <%= f.label :checkout %>
+                            <%= f.date_field :checkout %>
+                        </div>
+                        <div class="info-form people">
+                            <%= f.label :people %>
+                            <%= f.text_field :people, placeholder: "0" %>
+                        </div>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.hidden_field :room_id, value: @room.id %>
+                    </div>
+                    <div class="actions">
+                        <%= f.submit "予約する" %>
+                    </div>
+                <%end%>
+                </div>
             </div>
         </div> 
     </div>       

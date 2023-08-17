@@ -4,4 +4,5 @@ class Room < ApplicationRecord
     validates :detail, presence: true
     validates :fee, presence: true
     validates :address, presence: true
+    has_many :reservations
 end

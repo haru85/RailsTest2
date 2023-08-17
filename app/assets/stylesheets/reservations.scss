@@ -1,0 +1,38 @@
+.reservation {
+    margin:20px 0;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 300px;    
+    border-spacing: 0;
+    text-align: left;
+    th {
+        padding: 15px 15px 15px 0;
+        border-bottom: 1px solid black;
+        font-size: 15px;
+    }
+    .detail {
+        width: 30%;
+    }
+    td {
+        padding: 10px 15px 10px 0;
+        border-bottom: 1px solid #ddd;
+        font-size: 13px;       
+        img {
+            padding: 15px 15px 15px 0;
+            width: 150px;
+            height: auto;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+    }
+}
+
+
+

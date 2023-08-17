@@ -105,3 +105,33 @@ $room-color: #fff8dc;
         }
     }
 }
+
+.reserve-form {
+    margin-top: 20px;
+    .reserve-information {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        .info-form input {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        .people input {
+            font-size: 16px;
+            padding: 12px;
+        }
+    }
+    .actions input {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+        padding: 15px 0;
+        border: 0;
+        background-color: $accent-color;
+        color: white;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+}
