@@ -46,3 +46,65 @@ $base-color: #e0e0e0;
         }
     }
 }
+
+.account-menu {
+    h3 {
+        margin: 30px 0;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .profile-wrapper {
+        display: flex;
+        justify-content: space-between;
+        .profile-menu {
+            table {
+                width: 250px;
+                border: 1px solid #ddd;
+            }
+            th {
+                border: 1px solid #ddd;
+                a {
+                    padding: 20px 0 20px 20px;
+                    border: 0;
+                    font-weight: 500;
+                    text-decoration: none;
+                    color: black;
+                }                 
+            }
+            .orange th a {
+                color: $accent-color;
+            }
+        }
+        .profile-data {
+            width: 600px;
+            .table-name {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #ddd;
+                align-items: end;
+                h3 {
+                    margin: 0;
+                    padding-bottom: 10px;                    
+                }
+                a {
+                    margin: 0;
+                    padding-bottom: 10px;
+                    text-decoration: none;
+                    color: blue;
+                    font-size: 18px;
+                }
+            }
+            table th, td {
+                    padding: 20px 0;
+                    border: 0;
+                    font-size: 15px;
+                    font-weight: 500;
+                    img {
+                        width: 50px;
+                        height: auto;
+                        padding: 0;
+                    }
+                }
+        }
+    }
+}

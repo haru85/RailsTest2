@@ -1,0 +1,5 @@
+<% if @mode == "account" %>
+    <%= render "shared/account", obj0: "アカウント", obj1: :email, obj2: :password, obj3: "" %>
+<% else %>
+    <%= render "shared/account", obj0: "プロフィール", obj1: :icon, obj2: :name, obj3: :introduce %>
+<% end %>
