@@ -1,8 +1,14 @@
+<%= render "shared/search" %>
 <div class="container">
-    <p><%= @rooms.count %>件が見つかりました</p>
-    <div class="rooms-wrapper">
-        <% @rooms.each do |room| %>
-            <%= render "shared/room",obj: room %>
-        <% end %>
-    </div>
+    <% if @rooms %>
+        <p><%= @rooms.count %>件が見つかりました</p>
+        <div class="rooms-wrapper">
+            <% @rooms.each do |room| %>
+                <%= render "shared/room",obj: room %>
+            <% end %>
+        </div>
+    <% else %>
+        <p>施設が登録されていません</p>
+        <%= link_to "施設の新規登録", new_room_path %>
+    <% end %>
 </div>

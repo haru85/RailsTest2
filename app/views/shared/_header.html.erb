@@ -12,7 +12,7 @@
                 <div class="user-menu">
                     <%= link_to "施設の新規登録", new_room_path %>
                     <%= link_to "予約済み一覧", "#" %>
-                    <%= link_to "登録済み一覧", "#" %>
+                    <%= link_to "登録済み一覧", rooms_path(search: 0, id:current_user.id) %>
                     <%= link_to "アカウント設定", edit_user_registration_path %>
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </div>

@@ -14,12 +14,30 @@ $accent-color: #f39800;
         line-height: 100px;
         font-weight: 500;
     }
-    .top-search {
-        margin: 0 auto;
-        width: 500px;
-        height: 200px;
-        background-color: white;
-        opacity: 0.8;
+}
+
+.area-search {
+    .search-wrapper {
+        width: 60%;
+        max-width: 624px;
+        margin:0 auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        input {
+            width: 90%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        .actions input {
+            background-color: $accent-color;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            margin-bottom: 0;
+        }
     }
 }
 
