@@ -17,9 +17,9 @@
                 <td><%= link_to reservation.room.name, reservation.room %></td>
                 <td><%= reservation.room.detail %></td>
                 <td>¥ <%= reservation.room.fee * reservation.people * (reservation.checkout - reservation.checkin).to_i %></td>
-                <td><%= reservation.checkin %></td>
-                <td><%= reservation.checkout %></td>
-                <td><%= reservation.created_at %></td>
+                <td><%= l reservation.checkin, format: :short %></td>
+                <td><%= l reservation.checkout, format: :short %></td>
+                <td><%= l reservation.created_at, format: :default %></td>
                 <td></td>
             </tr>
         <% end %>

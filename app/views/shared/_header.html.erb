@@ -12,8 +12,8 @@
                 <div class="user-menu">
                     <%= link_to "施設の新規登録", new_room_path %>
                     <%= link_to "予約済み一覧", reservations_path(id:current_user.id) %>
-                    <%= link_to "登録済み一覧", rooms_path(search: 0, id:current_user.id) %>
-                    <%= link_to "アカウント設定", user_path(id:current_user.id, mode:"account") %>
+                    <%= link_to "登録済み一覧", "/rooms/own/#{current_user.id}" %>
+                    <%= link_to "アカウント設定", user_path(id:current_user.id, section:"account") %>
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </div>
             </div>

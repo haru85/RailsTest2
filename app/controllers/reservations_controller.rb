@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :index]
 
   def index
     @reservations = Reservation.where(user_id:params[:id])

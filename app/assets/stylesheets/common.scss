@@ -43,6 +43,8 @@ header {
             img {
                 width: 40px;
                 aspect-ratio: 1/1;
+                object-fit: cover;
+                border-radius: 50%;
             }
             p {
                 color: white;

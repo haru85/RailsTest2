@@ -10,10 +10,20 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（再確認）
-        introduction: 自己紹介
+        introduce: 自己紹介
+        icon: アイコン
+        current_password: 現在のパスワード
       room:
         name: 名前
         fee: 料金/一泊
         address: 住所
         detail: 詳細
         icon: 画像
+  date:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d"

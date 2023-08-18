@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -10,20 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    @user=User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
-    @user.icon = "/default_icon_image.png"
-    if @user.save
-      redirect_to root_url
-    else
-      render "new"
-    end
-  end
-
-  # GET /resource/edit
-  # def edit
+  # def create
   #   super
   # end
+
+  # GET /resource/edit
+  def edit
+    @section = params[:section]
+    super
+  end
 
   # PUT /resource
   # def update
@@ -44,22 +39,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :icon])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduce, :icon])
+  end
+
+  def update_resource(resource, params)
+    if params[:password].blank?
+      if params[:icon]
+        image = params[:icon].tempfile.read
+        File.binwrite("public/icon_images/#{current_user.id}.png", image)
+        params[:icon] = "/icon_images/#{current_user.id}.png"
+      end
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+  end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_update_path_for(resource)
+    user_path(id:current_user.id, section:"account")
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
