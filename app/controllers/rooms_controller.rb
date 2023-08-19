@@ -1,10 +1,10 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :new, :show]
+  before_action :authenticate_user!, only: [:create, :new, :show, :own]
 
   def index
     case params[:search]
     when "1" #住所で検索
-      @rooms = Room.where("address LIKE?", "#{params[:address]}%")
+      @rooms = Room.where("address LIKE?", "#{params[:address]}")
     when "2" #あいまい検索  
       @rooms = Room.merge(Room.where("address LIKE?", "%#{params[:address]}%"))
                     .merge(Room.where("name LIKE?", "%#{params[:keyword]}%").or(Room.where("detail LIKE?", "%#{params[:keyword]}%")))

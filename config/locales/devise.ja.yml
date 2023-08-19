@@ -1,0 +1,28 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    failure:
+      already_authenticated: "すでにログインしています"
+      invalid: "%{authentication_keys} かパスワードが違います"
+      not_found_in_database: "この %{authentication_keys} 、パスワードは登録されていません"
+      timeout: "自動的にログアウトしました。再度ログインして下さい"
+      unauthenticated: "続けるにはログインかユーザー登録をして下さい"
+    passwords:
+      updated: "パスワードの更新に成功しました。ログイン中です"
+      updated_not_active: "パスワードの更新に成功しました"
+    registrations:
+      destroyed: "アカウントは削除されました。またのご利用をお待ちしています"
+      signed_up: "ようこそ！アカウントの登録に成功しました"
+      updated: "アカウント情報が更新されました"
+      updated_but_not_signed_in: "アカウント情報が更新されました。新しいパスワードで再度ログインして下さい"
+    sessions:
+      signed_in: "ログインしました."
+      signed_out: "ログアウトしました"
+      already_signed_out: "すでにログアウトしています"
+  errors:
+    messages:
+      not_found: "見つかりません"
+      not_saved:
+        one: "1箇所エラーがあり、 %{resource} は保存されませんでした"
+        other: "%{count} 箇所エラーがあり、 %{resource} は保存されませんでした"

@@ -44,6 +44,11 @@ $base-color: #e0e0e0;
             font-size: 15px;
             text-decoration: none;
         }
+        p {
+            display: inline-block;
+            margin: 0;
+            font-size: 15px;
+        }
         .image input {
             border: 0;
         }
@@ -97,14 +102,8 @@ $base-color: #e0e0e0;
                     font-size: 18px;
                 }
             }
-            table {
-                position: relative;
-                margin-bottom: 150px;
+            .user-detail {
                 th, td {
-                    padding: 20px 0;
-                    border: 0;
-                    font-size: 15px;
-                    font-weight: 500;
                     img {
                         width: 50px;
                         height: auto;
@@ -136,9 +135,7 @@ $base-color: #e0e0e0;
                 display: flex;
                 justify-content: end;
                 gap: 20px;
-                position: relative;
-                right: 0;
-                bottom: 140px;
+                margin: 20px 0 40px;
                 a {
                     display: block;
                     width: 110px;

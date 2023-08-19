@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>予約内容の確認</h3>
+    <div class="confirm-wrapper">
+        <table class="table-type1">
+            <tr>
+                <th>チェックイン</th>
+                <td><%= @reservation.checkin %></td>
+            </tr>
+            <tr>
+                <th>チェックアウト</th>
+                <td><%= @reservation.checkout %></td>
+            </tr>
+            <tr>
+                <th>日数</th>
+                <td><%= (@reservation.checkout - @reservation.checkin).to_i %>日</td>
+            </tr>
+            <tr>
+                <th>人数</th>
+                <td><%= @reservation.people %>人</td>
+            </tr>
+            <tr>
+                <th>お支払い金額</th>
+                <td>¥ <%= ((@reservation.checkout - @reservation.checkin) * @reservation.people * @reservation.room.fee).to_i %></td>
+            </tr>
+        </table>
+        <p>上記内容でよろしければ「確定」ボタンを押して下さい</p>
+        <div class="confirm-button">
+            <%= link_to "予約を確定する", reservations_url(reservation:{checkin: @reservation.checkin, checkout: @reservation.checkout, people: @reservation.people, user_id: @reservation.user_id, room_id: @reservation.room_id}), method: :post %>
+            <%= link_to "戻る", :back %>
+        </div>
+    </div>
+</div>

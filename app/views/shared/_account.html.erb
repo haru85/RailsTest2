@@ -25,7 +25,7 @@
                 <h3><%= obj0 %></h3>
                 <%= link_to "編集", edit_user_registration_url(section: section) %>
             </div>
-            <table>
+            <table class="table-type1 user-detail">
                 <tr>
                     <th><%= User.human_attribute_name(obj1) %></th>
                     <% if obj1 == :icon %>

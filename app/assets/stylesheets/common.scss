@@ -137,3 +137,47 @@ footer {
         padding: 10px 30px;
     }
 }
+
+/* ユーザー詳細、編集、予約確認用テーブル */
+.table-type1 {
+    margin: 0;
+    width: 100%;
+    th, td { 
+        padding: 20px 0;
+        border: 0;
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0;
+    }
+} 
+
+/* 登録一覧、予約一覧用テーブル */
+.table-type2 {
+    width: 100%;
+    margin-bottom: 300px;    
+    border-spacing: 0;
+    text-align: left;
+    th {
+        padding: 15px 15px 15px 0;
+        border-bottom: 1px solid black;
+        font-size: 15px;
+    }
+    .detail {
+        width: 30%;
+    }
+    td {
+        padding: 10px 15px 10px 0;
+        border-bottom: 1px solid #ddd;
+        font-size: 13px;       
+        img {
+            padding: 15px 15px 15px 0;
+            width: 150px;
+            height: 85px;
+            object-fit: cover;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }        
+    }
+}

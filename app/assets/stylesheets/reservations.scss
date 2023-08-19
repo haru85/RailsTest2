@@ -4,35 +4,31 @@
     font-weight: 500;
 }
 
-table {
-    width: 100%;
-    margin-bottom: 300px;    
-    border-spacing: 0;
-    text-align: left;
-    th {
-        padding: 15px 15px 15px 0;
-        border-bottom: 1px solid black;
-        font-size: 15px;
-    }
-    .detail {
-        width: 30%;
-    }
-    td {
-        padding: 10px 15px 10px 0;
-        border-bottom: 1px solid #ddd;
-        font-size: 13px;       
-        img {
-            padding: 15px 15px 15px 0;
-            width: 150px;
-            height: auto;
+.confirm-wrapper {
+    width: fit-content;
+    margin: 0 auto;
+    table {
+        text-align: left;
+        margin-bottom: 40px;
+        th {
+            padding-right: 100px;
         }
-        a {
-            color: blue;
-            text-decoration: none;
+    }
+    .confirm-button a {
+        display: block;
+        width: 400px;
+        padding: 20px 0;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        &:first-child {
+            background-color: orange;
+            color: white;
         }
-        
+        &:last-child {
+            border: 1px solid black;
+            color: black;
+            margin: 20px 0 30px;
+        }
     }
 }
-
-
-

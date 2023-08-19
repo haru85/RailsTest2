@@ -19,6 +19,10 @@ ja:
         address: 住所
         detail: 詳細
         icon: 画像
+      reservation:
+        checkin: チェックイン
+        checkout: チェックアウト
+        people: 人数
   date:
     formats:
       default: "%Y/%m/%d %H:%M"
