@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+お手数をおかけしますが、JQuery設定のため、
+下記ファイルの上書きをお願い致します。
+（Webpackerのインストール時にJQueryの設定が消去されてしまうようです）
 
-Things you may want to cover:
+* JQueryの読み込み設定（environment.jsの編集）
+config/webpack/environment.jsを開き
 
-* Ruby version
+__変更前__
+const { environment } = require('@rails/webpacker')
 
-* System dependencies
+module.exports = environment
 
-* Configuration
+__↓変更後__
+const { environment } = require('@rails/webpacker')
 
-* Database creation
+/* ここから追記 */
+const webpack = require('webpack')
 
-* Database initialization
+environment.plugins.prepend('Provide',
+    new webpack.ProvidePlugin({
+        $: 'jQuery/src/jquery',
+        jQuery: 'jQuery/src/jquery'
+    })
+)
 
-* How to run the test suite
+/* 追記ここまで */
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+module.exports = environment
