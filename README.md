@@ -7,12 +7,14 @@
 * JQueryの読み込み設定（environment.jsの編集）
 config/webpack/environment.jsを開き
 
-__変更前__
+変更前
+___
 const { environment } = require('@rails/webpacker')
 
 module.exports = environment
 
-__↓変更後__
+↓変更後
+___
 const { environment } = require('@rails/webpacker')
 
 /* ここから追記 */
