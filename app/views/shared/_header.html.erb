@@ -7,9 +7,9 @@
             <div class="user-function">
                 <div class="user-icon">
                     <%= image_tag current_user.icon %>
-                    <p id="toggle"><%= current_user.name %><span class="close" id="button">▼</span></p>
+                    <p id="toggle" onclick="userMenu()"><%= current_user.name %><span class="close" id="button">▼</span></p>
                 </div>
-                <div class="user-menu">
+                <div id="user-menu">
                     <%= link_to "施設の新規登録", new_room_path %>
                     <%= link_to "予約済み一覧", reservations_path(id:current_user.id) %>
                     <%= link_to "登録済み一覧", "/rooms/own/#{current_user.id}" %>
