@@ -20,8 +20,8 @@ ja:
         detail: 詳細
         icon: 画像
       reservation:
-        checkin: チェックイン
-        checkout: チェックアウト
+        checkin: チェックイン日
+        checkout: チェックアウト日
         people: 人数
   date:
     formats:

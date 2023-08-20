@@ -8,7 +8,7 @@ class Reservation < ApplicationRecord
     belongs_to :room
     
     def date_check
-        if not(self.checkin.blank? && self.checkout.blank?) && self.checkin <= Date.today
+        if not(self.checkin.blank? && self.checkout.blank?) && self.checkin < Date.today
             errors.add(:checkin, "は、明日以降の日付を指定して下さい")
         elsif not(self.checkin.blank? && self.checkout.blank?) && self.checkout <= self.checkin
             errors.add(:checkout, "は、チェックイン日の翌日以降の日付を指定して下さい")

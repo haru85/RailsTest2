@@ -15,6 +15,13 @@
             </div>
             <p class="detail"><%= @room.detail %></p>
             <div class="reserve-form">
+                <div class="errors">
+                    <% if @reservation.errors.any? %>
+                        <% @reservation.errors.full_messages.each do |error| %>
+                            <p><%= error %></p>
+                        <% end %>
+                    <% end %>
+                </div>
                 <%= form_with model:@reservation, url:"/reservations/confirm", method: :get do |f| %>
                     <div class="reserve-information">
                         <div class="info-form">

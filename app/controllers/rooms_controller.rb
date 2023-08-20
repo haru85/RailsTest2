@@ -17,14 +17,15 @@ class RoomsController < ApplicationController
     @room.icon = "/default_hotel_image.png"
     if @room.save
       if params[:room][:icon]
-        binding.pry
         image = params[:room][:icon].tempfile.read
         File.binwrite("public/room_images/#{@room.id}.png", image)
         @room.icon = "/room_images/#{@room.id}.png" 
         @room.save     
       end
+      flash[:notice] = "登録が完了しました"
       redirect_to "/rooms/own/#{current_user.id}"
     else
+      flash.now[:alert] = "登録に失敗しました"
       render "new"
     end   
   end
