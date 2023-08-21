@@ -25,6 +25,7 @@
                 <h3><%= obj0 %></h3>
             </div>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= render "users/shared/error_messages", resource: resource %>
                 <table class="table-type1 user-detail">            
                     <tr>
                         <th><%= User.human_attribute_name(obj1) %></th>
@@ -102,7 +103,8 @@
                                 <td><%= f.text_area obj3, autofocus: true %></td>
                             <% else %>
                                 <td></td>
-                            <% end %>                        
+                            <% end %>
+                            <% f.hidden_field :section, :value => @section %>                   
                         </div>
                     </tr>
                 </table>                

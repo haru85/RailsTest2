@@ -4,9 +4,11 @@
       <h2>施設登録</h2>
       <div class="errors">
         <% if @room.errors.any? %>
-            <% @room.errors.full_messages.each do |error| %>
-                <p><%= error %></p>
-            <% end %>
+            <ul>
+              <% @room.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+              <% end %>
+            </ul>
         <% end %>
       </div>
       <%= form_with model:@room, local: true do |f| %>

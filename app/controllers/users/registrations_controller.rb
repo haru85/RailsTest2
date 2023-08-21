@@ -17,13 +17,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
     @section = params[:section]
+    @path = "/users/edit?section=#{@section}"
     super
   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    
+    resource_updated = update_resource(resource, account_update_params)
+    yield resource if block_given?
+    if resource_updated
+      flash[:notice] = "ユーザー情報が更新されました"
+      bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
+      redirect_to user_url(id:current_user.id, section:"account")
+    else
+      flash.now[:alert] = "入力内容に不備があります"
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource, locals: {section: params[:section]}
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -48,11 +62,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduce, :icon])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduce, :icon, :section])
   end
 
   def update_resource(resource, params)
-    if params[:password].blank?
+    if params[:password].blank? && params[:password_confirmation].blank?
       if params[:icon]
         image = params[:icon].tempfile.read
         File.binwrite("public/icon_images/#{current_user.id}.png", image)

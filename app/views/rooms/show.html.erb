@@ -17,9 +17,11 @@
             <div class="reserve-form">
                 <div class="errors">
                     <% if @reservation.errors.any? %>
-                        <% @reservation.errors.full_messages.each do |error| %>
-                            <p><%= error %></p>
-                        <% end %>
+                        <ul>
+                            <% @reservation.errors.full_messages.each do |error| %>
+                                <li><%= error %></li>
+                            <% end %>
+                        </ul>
                     <% end %>
                 </div>
                 <%= form_with model:@reservation, url:"/reservations/confirm", method: :get do |f| %>

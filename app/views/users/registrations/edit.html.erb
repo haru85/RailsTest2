@@ -1,7 +1,5 @@
-<% if @section == "account" %>
-    <% puts "night#{ :section }" %>
+<% if @section == "profile" %>
+    <%= render "shared/account_edit", obj0: "プロフィール", obj1: :icon, obj2: :name, obj3: :introduce, section: params[:section], id: current_user.id %>    
+<% else %>    
     <%= render "shared/account_edit", obj0: "アカウント", obj1: :email, obj2: :password, obj3: "", section: params[:section], id: current_user.id %>
-<% else %>
-    <% puts "hello#{:section}" %>
-    <%= render "shared/account_edit", obj0: "プロフィール", obj1: :icon, obj2: :name, obj3: :introduce, section: params[:section], id: current_user.id %>
 <% end %>
