@@ -1,0 +1,120 @@
+<div class="container account-menu">
+    <h3>設定</h3>
+    <div class="profile-wrapper">
+        <div class="profile-menu">
+            <table>
+                <% if obj1 == :email %>
+                    <div>
+                        <tr class="orange"><th><%= link_to "アカウント", user_path(section:"account", id: @user.id) %></th></tr>
+                    </div>
+                    <div>
+                        <tr><th><%= link_to "プロフィール", user_path(section: "profile", id: @user.id) %></th></tr>
+                    </div>
+                <% else %>
+                    <div>
+                        <tr><th><%= link_to "アカウント", user_path(section:"account", id:@user.id) %></th></tr>
+                    </div>
+                    <div>
+                        <tr class="orange"><th><%= link_to "プロフィール", user_path(section: "profile", id: @user.id) %></th></tr>
+                    </div>
+                <% end %>
+            </table>
+        </div>
+        <div class="profile-data">
+            <div class="table-name">
+                <h3><%= obj0 %></h3>
+            </div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= render "users/shared/error_messages", resource: resource %>
+                <table class="table-type1 user-detail">            
+                    <tr>
+                        <th><%= User.human_attribute_name(obj1) %></th>
+                        <% if obj1 == :icon %>
+                            <td>
+                                <div class="icon-edit">
+                                    <%= image_tag @user[obj1] %>
+                                    <div class="field">
+                                        <%= f.file_field obj1, autofocus: true %>
+                                    </div>
+                                </div>
+                            </td>
+                        <% else %>
+                            <td>
+                                <div class="field">
+                                    <%= f.text_field obj1, autofocus: true %>
+                                </div>
+                            </td>
+                        <% end %>
+                    </tr>
+                    <% if obj2 == :password %>
+                        <tr>
+                            <th>
+                                <%= User.human_attribute_name(obj2) %><br>
+                                <p>変更する場合のみ入力(6文字以上)</p>
+                            </th>
+                            <td>
+                                <div class="field">
+                                    <%= f.password_field obj2, autofocus: true %>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <%= User.human_attribute_name(:password_confirmation) %><br>
+                                <p>(パスワードを変更する場合は必須です)</p>
+                            </th>
+                            <td>
+                                <div class="field">
+                                    <%= f.password_field :password_confirmation, autofocus: true %>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <%= User.human_attribute_name(:current_password) %><br>
+                                <p>(パスワードを変更する場合は必須です)</p>
+                            </th>
+                            <td>
+                                <div class="field">
+                                    <%= f.password_field :current_password, autofocus: true %>
+                                </div>
+                            </td>
+                        </tr>
+                    <% else %>
+                        <tr>
+                            <th>
+                                <%= User.human_attribute_name(obj2) %><br>
+                            </th>
+                            <td>
+                                <div class="field">
+                                    <%= f.text_field obj2, autofocus: true %>
+                                </div>
+                            </td>
+                        </tr>
+                    <% end %>
+                    <tr>
+                        <% unless obj3 == "" %>
+                            <th><%= User.human_attribute_name(obj3) %></th>
+                        <% else %>
+                            <th></th>
+                        <% end %>
+                        <div class="field">
+                            <% unless obj3 == "" %>
+                                <td><%= f.text_area obj3, autofocus: true %></td>
+                            <% else %>
+                                <td></td>
+                            <% end %>
+                            <% f.hidden_field :section, :value => @section %>                   
+                        </div>
+                    </tr>
+                </table>                
+                <div class="edit-buttons">
+                    <%= link_to "キャンセル", :back %>
+                    <div class="actions">
+                        <%= f.submit "更新" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

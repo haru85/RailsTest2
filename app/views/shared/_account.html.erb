@@ -1,0 +1,56 @@
+<div class="container account-menu">
+    <h3>設定</h3>
+    <div class="profile-wrapper">
+        <div class="profile-menu">
+            <table>
+                <% if obj1 == :email %>
+                    <div>
+                        <tr class="orange"><th><%= link_to "アカウント", user_path(section:"account") %></th></tr>
+                    </div>
+                    <div>
+                        <tr><th><%= link_to "プロフィール", user_path(section: "profile") %></th></tr>
+                    </div>
+                <% else %>
+                    <div>
+                        <tr><th><%= link_to "アカウント", user_path(section:"account", id:@user.id) %></th></tr>
+                    </div>
+                    <div>
+                        <tr class="orange"><th><%= link_to "プロフィール", user_path(section: "profile", id: @user.id) %></th></tr>
+                    </div>
+                <% end %>
+            </table>
+        </div>
+        <div class="profile-data">
+            <div class="table-name">
+                <h3><%= obj0 %></h3>
+                <%= link_to "編集", edit_user_registration_url(section: section) %>
+            </div>
+            <table class="table-type1 user-detail">
+                <tr>
+                    <th><%= User.human_attribute_name(obj1) %></th>
+                    <% if obj1 == :icon %>
+                        <td><%= image_tag @user[obj1] %></td>
+                    <% else %>
+                        <td><%= @user[obj1] %></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <th><%= User.human_attribute_name(obj2) %></th>
+                    <% if obj2 == :password %>
+                        <td>************</td>
+                    <% else %>
+                        <td><%= @user[obj2] %></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <% unless obj3 == "" %>
+                        <th><%= User.human_attribute_name(obj3) %></th>
+                    <% else %>
+                        <th></th>
+                    <% end %>
+                    <td><%= @user[obj3] %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+$theme-color: #001e43;
+$accent-color: #f39800;
+$base-color: #e0e0e0;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin:0 auto;
+}
+
+/* header */
+header {
+    background-color: $theme-color;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo a {
+        display: inline-block;
+        margin: 0;
+        padding: 10px 0;
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .user-function {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .user-icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            img {
+                width: 40px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+            p {
+                color: white;
+                cursor: pointer;
+                span {
+                    margin-left: 10px;
+                    font-size: 12px;
+                }
+            }
+        }        
+        .user-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            position: absolute;
+            padding: 10px;
+            right: -5px;
+            top: 60px;
+            background-color: white;
+            border-radius: 5%;
+            width: 120px;
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 15px;
+                &:nth-child(1), &:nth-child(4) {
+                    border-bottom: 1px solid black;
+                }
+            }
+        }
+    }
+
+    .header-functions {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 40px;
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            &:first-child {
+                color: white;
+                background-color: $accent-color;
+            }
+            &:last-child {
+                color: $theme-color;
+                background-color: white;
+            }
+        }
+    }
+}
+
+/* footer */
+footer {
+    background-color: $theme-color;
+    padding: 100px 0;
+    color: white;
+    h2 {        
+        margin: 0;
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+    }
+    p {
+        margin: 0;
+        padding-bottom: 50px;
+        font-weight: 100;
+    }
+}
+
+.search-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+    padding:40px 0;
+    input {
+        display: inline-block;
+        margin: 0;
+        padding: 10px;
+        font-size: 15px;;
+    }
+    .actions input {
+        border: 0;
+        font-size: 12px;
+        padding: 10px 30px;
+    }
+}
+
+/* ユーザー詳細、編集、予約確認用テーブル */
+.table-type1 {
+    margin: 0;
+    width: 100%;
+    th, td { 
+        padding: 20px 0;
+        border: 0;
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0;
+    }
+} 
+
+/* 登録一覧、予約一覧用テーブル */
+.table-type2 {
+    width: 100%;
+    margin-bottom: 300px;    
+    border-spacing: 0;
+    text-align: left;
+    th {
+        padding: 15px 15px 15px 0;
+        border-bottom: 1px solid black;
+        font-size: 15px;
+    }
+    .detail {
+        width: 30%;
+    }
+    td {
+        padding: 10px 15px 10px 0;
+        border-bottom: 1px solid #ddd;
+        font-size: 13px;       
+        img {
+            padding: 15px 15px 15px 0;
+            width: 150px;
+            height: 85px;
+            object-fit: cover;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }        
+    }
+}
+
+.errors {
+    color: red;
+    font-weight: bold;
+}
+
+.notice {
+    color: white;
+    background-color: blue;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .alert {
+    color: white;
+    background-color: red;
+    padding: 10px 0;
+    text-align: center;
+  }

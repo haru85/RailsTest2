@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="reservation">登録済み一覧</h3>
+    <table class="table-type2">
+        <tr>
+            <th>画像</th>
+            <th>施設名</th>
+            <th class="detail">紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+            <th></th>
+        </tr>
+        <% @rooms.each do |room| %>
+            <tr>
+                <td><%= image_tag room.icon %></td>
+                <td><%= link_to room.name, room %></td>
+                <td><%= room.detail %></td>
+                <td>¥ <%= room.fee %>〜</td>
+                <td><%= l room.created_at, format: :short %></td>
+                <td></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

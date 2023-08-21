@@ -1,0 +1,10 @@
+<div class="room-wrapper">
+    <%= image_tag obj.icon %>
+    <div class="room">
+        <h4><%= obj.name %></h4>
+        <p class="address"><%= obj.address %></p>
+        <p class="detail"><%= obj.detail %></p>
+        <p class="fee">¥<%= obj.fee %>〜</p>
+        <%= link_to "詳細はこちら", obj %>
+    </div>
+</div>

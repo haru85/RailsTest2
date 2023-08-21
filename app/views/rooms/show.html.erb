@@ -1,0 +1,53 @@
+<%= render "shared/search" %>
+<div class="container">
+    <%= link_to "← 戻る", :back, class: "back-button"%>
+    <div class="detail-wrapper">
+        <div class= "room-icon">
+            <%= image_tag @room.icon %>
+        </div>
+        <div class="detail2">
+            <div class="detail3 room">
+                <div class="room-detail-wrapper">
+                    <h4><%= @room.name %></h4>
+                    <p class="address"><%= @room.address %></p>
+                </div>
+                <p class="fee">¥<%= @room.fee %>〜</p>
+            </div>
+            <p class="detail"><%= @room.detail %></p>
+            <div class="reserve-form">
+                <div class="errors">
+                    <% if @reservation.errors.any? %>
+                        <ul>
+                            <% @reservation.errors.full_messages.each do |error| %>
+                                <li><%= error %></li>
+                            <% end %>
+                        </ul>
+                    <% end %>
+                </div>
+                <%= form_with model:@reservation, url:"/reservations/confirm", method: :get do |f| %>
+                    <div class="reserve-information">
+                        <div class="info-form">
+                            <%= f.label Reservation.human_attribute_name(:checkin) %>
+                            <%= f.date_field :checkin %>
+                        </div>
+                        <div class="info-form">
+                            <%= f.label Reservation.human_attribute_name(:checkout) %>
+                            <%= f.date_field :checkout %>
+                        </div>
+                        <div class="info-form people">
+                            <%= f.label Reservation.human_attribute_name(:people) %>
+                            <%= f.text_field :people, placeholder: "0" %>
+                        </div>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.hidden_field :room_id, value: @room.id %>
+                    </div>
+                    <div class="actions">
+                        <%= f.submit "予約する" %>
+                    </div>
+                <%end%>
+                </div>
+            </div>
+        </div> 
+    </div>       
+    
+</div>
